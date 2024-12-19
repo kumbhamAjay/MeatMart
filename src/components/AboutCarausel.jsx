@@ -187,7 +187,7 @@ const AboutCarausel = () => {
   ];
 
   return (
-    <div className="flex flex-wrap items-center bg-lime-700 text-white rounded-lg mx-20 px-4 py-8 lg:px-20 lg:py-12">
+    <div className="flex flex-wrap items-center mb-10 bg-lime-700 text-white rounded-lg mx-20 px-4 py-8 lg:px-20 lg:py-12">
       {/* Mission Carousel */}
       <div className="w-full lg:w-1/3 px-4 mb-6 lg:mb-0">
         <h2 className="text-lg font-bold mb-4 text-center">Our Mission</h2>
@@ -216,13 +216,13 @@ const AboutCarausel = () => {
             <path id="leftSidePath" d="M 110,40 A 70,70 0 0,1 110,180" fill="none" />
             <text>
               <textPath href="#leftSidePath" startOffset="50%" textAnchor="middle">
-                <tspan className="mission-text">MISSION</tspan>
+                <tspan className="mission-text">VISION</tspan>
               </textPath>
             </text>
             <path id="rightSidePath" d="M 110,180 A 70,70 0 0,1 110,40" fill="none" />
             <text>
               <textPath href="#rightSidePath" startOffset="50%" textAnchor="middle">
-                <tspan className="vision-text">VISION</tspan>
+                <tspan className="vision-text">MISSION</tspan>
               </textPath>
             </text>
           </svg>
