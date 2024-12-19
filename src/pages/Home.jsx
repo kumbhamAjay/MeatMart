@@ -10,6 +10,7 @@ import CurvedText from "../components/CurvedText";
 import CircleTextComponent from "../components/CurvedText";
 import CircleLayout from "../components/CurvedText";
 import CircleDesign from "../components/CircleDesign";
+import AboutCarausel from "../components/AboutCarausel";
 const featuredProducts = [
   {
     id: "1",
@@ -87,7 +88,8 @@ export default function Home() {
           ))}
         </div>
       </div>
-          <CircleDesign/>
+          {/* <CircleDesign/> */}
+          <AboutCarausel/>
       {/* How It Works */}
       {/* <div className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
