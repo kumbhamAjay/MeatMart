@@ -9,7 +9,7 @@ export default function Cart() {
 
   const updateQuantity = (id, newQuantity) => {
     setCartItems(cartItems.map(item => 
-      item.product.id === id ? { ...item, quantity: newQuantity } : item
+      item.id === id ? { ...item, quantity: newQuantity } : item
     ));
   };
 
@@ -17,7 +17,7 @@ export default function Cart() {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
 
-  const total =cartItems.length>0? cartItems.reduce((sum, item) => sum + (item.price ), 0):0
+  const total =cartItems.length>0? cartItems.reduce((sum, item) => sum + (item.price*item.quantity ), 0):0
 
   return (
     <div className="max-w-7xl mx-auto px-4 my-10 sm:px-6 lg:px-8 py-8">
@@ -31,7 +31,7 @@ export default function Cart() {
             <CartItem
               key={product.id}
               product={product}
-              
+              quantity={product.quantity}
               onUpdateQuantity={updateQuantity}
               onRemove={removeItem}
             />

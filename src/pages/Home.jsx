@@ -20,6 +20,7 @@ const featuredProducts = [
     image: meat1,
     description: "Fresh, boneless chicken breast",
     category: "chicken",
+    quantity:1
   },
   {
     id: "2",
@@ -28,6 +29,7 @@ const featuredProducts = [
     image: meat2,
     description: "Premium cut lamb chops",
     category: "lamb",
+    quantity:1
   },
   {
     id: "3",
@@ -36,30 +38,34 @@ const featuredProducts = [
     image: meat3,
     description: "Premium cut lamb chops",
     category: "lamb",
+    quantity:1
   },
   {
-    id: "1",
+    id: "4",
     name: "Premium Chicken Breast",
     price: 299,
     image: meat1,
     description: "Fresh, boneless chicken breast",
     category: "chicken",
+    quantity:1
   },
   {
-    id: "2",
+    id: "5",
     name: "Lamb Chops",
     price: 599,
     image: meat2,
     description: "Premium cut lamb chops",
     category: "lamb",
+    quantity:1
   },
   {
-    id: "3",
+    id: "6",
     name: "Lamb Chops",
     price: 599,
     image: meat3,
     description: "Premium cut lamb chops",
     category: "lamb",
+    quantity:1
   },
  
 ];
@@ -81,10 +87,11 @@ export default function Home() {
       {/* Featured Products */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl font-bold mb-8">Featured Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProducts.map((product) => (
             <ProductCard
               key={product.id}
+              quantity={product.quantity}
               product={product}
               onAddToCart={handleAddToCart}
             />
