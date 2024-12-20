@@ -17,7 +17,7 @@ export default function StoreCard({ store }) {
           <span>{store.rating}</span>
           <span className="text-gray-500">• {store.distance} away</span>
         </div>
-        <button className="mt-4 w-full bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
+        <button className="mt-4 w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-800">
           Visit Store
         </button>
       </div>

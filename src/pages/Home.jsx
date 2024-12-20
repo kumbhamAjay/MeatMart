@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProductCard from "../components/ProductCard";
 import meat1 from "../Assets/meat1.avif";
 import meat2 from "../Assets/meat2.jpg";
@@ -11,6 +11,7 @@ import CircleTextComponent from "../components/CurvedText";
 import CircleLayout from "../components/CurvedText";
 import CircleDesign from "../components/CircleDesign";
 import AboutCarausel from "../components/AboutCarausel";
+import { context } from "../App";
 const featuredProducts = [
   {
     id: "1",
@@ -64,8 +65,10 @@ const featuredProducts = [
 ];
 
 export default function Home() {
+  const{cartItems,setCartItems}=useContext(context)
   const handleAddToCart = (product) => {
     // TODO: Implement cart functionality
+    setCartItems([...cartItems,product])
     console.log("Added to cart:", product);
   };
 

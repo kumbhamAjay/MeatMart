@@ -45,7 +45,7 @@ export default function Stores() {
   return (
     <div className="max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex items-center space-x-2 mb-8">
-        <MapPin className="text-red-600" size={24} />
+        <MapPin className="text-green-600" size={24} />
         <h1 className="text-2xl font-bold">Nearby Stores</h1>
       </div>
       

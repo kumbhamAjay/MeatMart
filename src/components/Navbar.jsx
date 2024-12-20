@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, User, MapPin } from 'lucide-react';
 import goat from '../Assets/goat.jpg';
+import { context } from '../App';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const{cartItems,setCartItems}=useContext(context)
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <nav className="bg-red-600 text-white shadow-lg  fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-green-600 text-white shadow-lg  fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={goat}
-              alt="Meat Mart logo"
-              className="w-20 h-16 rounded-full object-cover"
-            />
+            
             <span className="text-2xl font-bold">Meat Mart</span>
           </Link>
 
@@ -29,7 +27,7 @@ export default function Navbar() {
             <Link to="/orders" className="hover:text-red-200">Orders</Link>
             <Link to="/cart" className="flex items-center space-x-1 hover:text-red-200">
               <ShoppingCart size={20} />
-              <span>Cart</span>
+              <span>Cart({cartItems.length})</span>
             </Link>
             <Link to="/login" className="flex items-center space-x-1 hover:text-red-200">
               <User size={20} />
