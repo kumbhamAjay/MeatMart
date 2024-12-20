@@ -7,6 +7,7 @@ import Orders from './pages/Orders';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Footer from './components/Footer';
+import { Toaster } from 'react-hot-toast';
 export const context=createContext()
 
 
@@ -16,6 +17,7 @@ function App() {
     <context.Provider value={{cartItems,setCartItems}}>
       <Router>
       <div className="min-h-screen bg-gray-50 ">
+        <Toaster position='top-right'/>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

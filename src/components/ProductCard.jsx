@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ProductCard({ product, onAddToCart }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full sm:w-1/2 h-auto flex flex-col">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full  h-auto flex flex-col">
     <img 
       src={product.image} 
       alt={product.name}

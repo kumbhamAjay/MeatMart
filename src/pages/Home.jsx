@@ -12,6 +12,7 @@ import CircleLayout from "../components/CurvedText";
 import CircleDesign from "../components/CircleDesign";
 import AboutCarausel from "../components/AboutCarausel";
 import { context } from "../App";
+import toast from "react-hot-toast";
 const featuredProducts = [
   {
     id: "1",
@@ -20,7 +21,7 @@ const featuredProducts = [
     image: meat1,
     description: "Fresh, boneless chicken breast",
     category: "chicken",
-    quantity:1
+    quantity: 1,
   },
   {
     id: "2",
@@ -29,7 +30,7 @@ const featuredProducts = [
     image: meat2,
     description: "Premium cut lamb chops",
     category: "lamb",
-    quantity:1
+    quantity: 1,
   },
   {
     id: "3",
@@ -38,7 +39,7 @@ const featuredProducts = [
     image: meat3,
     description: "Premium cut lamb chops",
     category: "lamb",
-    quantity:1
+    quantity: 1,
   },
   {
     id: "4",
@@ -47,7 +48,7 @@ const featuredProducts = [
     image: meat1,
     description: "Fresh, boneless chicken breast",
     category: "chicken",
-    quantity:1
+    quantity: 1,
   },
   {
     id: "5",
@@ -56,7 +57,7 @@ const featuredProducts = [
     image: meat2,
     description: "Premium cut lamb chops",
     category: "lamb",
-    quantity:1
+    quantity: 1,
   },
   {
     id: "6",
@@ -65,74 +66,58 @@ const featuredProducts = [
     image: meat3,
     description: "Premium cut lamb chops",
     category: "lamb",
-    quantity:1
+    quantity: 1,
   },
- 
 ];
 
 export default function Home() {
-  const{cartItems,setCartItems}=useContext(context)
+  const { cartItems, setCartItems } = useContext(context);
   const handleAddToCart = (product) => {
-    // TODO: Implement cart functionality
-    setCartItems([...cartItems,product])
-    console.log("Added to cart:", product);
+    if (cartItems.length === 0) {
+      setCartItems([...cartItems, product]);
+      toast.success("Added to cart!");
+    } else {
+      let found = false;
+      for (let i of cartItems) {
+        if (i.id === product.id) {
+          found = true;
+          toast.error("Already in cart!");
+          break;
+        }
+      }
+      if (!found) {
+        setCartItems([...cartItems, product]);
+        toast.success("Added to cart!");
+      }
+    }
   };
 
   return (
     <div className="min-h-screen bg-green-50">
       <ManualCarousel />
-    {/* <CircleLayout/>  */}
-      {/* <CurvedText radius={50} text={"ajayreddasdfghjkasdfghjksdfghy"} fontSize={20}/> */}
-
-      {/* Featured Products */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl font-bold mb-8">Featured Products</h2>
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+      <div className="container  my-10 lg:px-8">
+      <h1 className="text-2xl font-bold mx-8 mb-10">Featured Products</h1>
+        <div className="grid grid-cols-2 mx-4 lg:grid-cols-3 gap-6 lg:gap-8">
           {featuredProducts.map((product) => (
-            <ProductCard
+            <div
               key={product.id}
-              quantity={product.quantity}
-              product={product}
-              onAddToCart={handleAddToCart}
-            />
+              className="bg-white rounded-lg shadow-md overflow-hidden w-full h-64 sm:h-80 lg:h-96 flex"
+            >
+              <ProductCard
+                quantity={product.quantity}
+                product={product}
+                onAddToCart={handleAddToCart}
+                className="w-full h-full"
+              />
+            </div>
           ))}
         </div>
       </div>
-          {/* <CircleDesign/> */}
-          <AboutCarausel/>
-      {/* How It Works */}
-      {/* <div className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold mb-8 text-center">Our Mission and Vision</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-red-600 text-2xl font-bold">1</span>
-              </div>
-              <h3 className="font-semibold mb-2">Choose Your Meat</h3>
-              <p className="text-gray-600">
-                Browse our selection of fresh meats
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-red-600 text-2xl font-bold">2</span>
-              </div>
-              <h3 className="font-semibold mb-2">Select Store</h3>
-              <p className="text-gray-600">Choose from nearby stores</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-red-600 text-2xl font-bold">3</span>
-              </div>
-              <h3 className="font-semibold mb-2">Get Delivery</h3>
-              <p className="text-gray-600">
-                We'll pick you up and drop you back
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
+
+    
+      <AboutCarausel />
+
     </div>
   );
 }
