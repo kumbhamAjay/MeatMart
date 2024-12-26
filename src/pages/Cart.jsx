@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import CartItem from '../components/CartItem';
 import { context } from '../App';
+import { Link } from 'react-router-dom';
 
 
 
@@ -51,7 +52,7 @@ export default function Cart() {
             </button>
           </div>
         </div>
-      )}</>:<div>Please Login</div>
+      )}</>:<div>Please Login <Link to={"/login"}><button className='bg-green-500'>Go to Login</button></Link></div>
     }
       
     </div>

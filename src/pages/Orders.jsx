@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import OrderCard from '../components/OrderCard';
 import { context } from '../App';
+import { Link } from 'react-router-dom';
 
 const products = [
   {
@@ -32,7 +33,7 @@ export default function Orders() {
           <OrderCard key={product.id} product={product} />
         ))}
       </div>
-      </>:<h1>Please Login</h1>}
+      </>:<h1>Please Login <Link to={"/login"}><button className='bg-green-500'>Go to Login</button></Link></h1>}
     </div>
   );
 }
