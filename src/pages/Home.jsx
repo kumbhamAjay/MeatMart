@@ -13,6 +13,7 @@ import CircleDesign from "../components/CircleDesign";
 import AboutCarausel from "../components/AboutCarausel";
 import { context } from "../App";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const featuredProducts = [
   {
     id: "1",
@@ -71,7 +72,8 @@ const featuredProducts = [
 ];
 
 export default function Home() {
-  const { cartItems, setCartItems } = useContext(context);
+  const { cartItems, setCartItems ,isLogin} = useContext(context);
+  const navigate=useNavigate()
   const handleAddToCart = (product) => {
     if (cartItems.length === 0) {
       setCartItems([...cartItems, product]);
@@ -81,7 +83,7 @@ export default function Home() {
       for (let i of cartItems) {
         if (i.id === product.id) {
           found = true;
-          toast.error("Already in cart!");
+          toast.error("Already in cart! Visit Cart");
           break;
         }
       }
@@ -107,7 +109,7 @@ export default function Home() {
               <ProductCard
                 quantity={product.quantity}
                 product={product}
-                onAddToCart={handleAddToCart}
+                onAddToCart={isLogin?handleAddToCart:()=>navigate('/login')}
                 className="w-full h-full"
               />
             </div>

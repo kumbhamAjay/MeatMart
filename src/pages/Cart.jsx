@@ -5,7 +5,7 @@ import { context } from '../App';
 
 
 export default function Cart() {
- const{cartItems,setCartItems}=useContext(context)
+ const{cartItems,setCartItems,isLogin}=useContext(context)
 
   const updateQuantity = (id, newQuantity) => {
     setCartItems(cartItems.map(item => 
@@ -20,7 +20,11 @@ export default function Cart() {
   const total =cartItems.length>0? cartItems.reduce((sum, item) => sum + (item.price*item.quantity ), 0):0
 
   return (
+    <>
+   
     <div className="max-w-7xl mx-auto px-4 my-10 sm:px-6 lg:px-8 py-8">
+    {
+      isLogin?<>
       <h1 className="text-2xl font-bold mb-8">Shopping Cart</h1>
       
       {cartItems.length === 0 ? (
@@ -47,7 +51,11 @@ export default function Cart() {
             </button>
           </div>
         </div>
-      )}
+      )}</>:<div>Please Login</div>
+    }
+      
     </div>
+    </>
+    
   );
 }

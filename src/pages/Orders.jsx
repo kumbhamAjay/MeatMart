@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import OrderCard from '../components/OrderCard';
+import { context } from '../App';
 
 const products = [
   {
@@ -21,15 +22,17 @@ const products = [
 ];
 
 export default function Orders() {
+  const{isLogin}=useContext(context)
   return (
     <div className="max-w-7xl mx-auto px-4 my-10 sm:px-6 lg:px-8 py-8">
-      <h1 className="text-2xl font-bold mb-8">Non-Veg Varieties</h1>
+      {isLogin?<><h1 className="text-2xl font-bold mb-8">Non-Veg Varieties</h1>
       
       <div className="space-y-4">
         {products.map((product) => (
           <OrderCard key={product.id} product={product} />
         ))}
       </div>
+      </>:<h1>Please Login</h1>}
     </div>
   );
 }
