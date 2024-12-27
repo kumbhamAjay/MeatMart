@@ -3,19 +3,22 @@ import { Star } from 'lucide-react';
 
 export default function StoreCard({ store }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full  h-auto flex flex-col">
       <img 
         src={store.image} 
         alt={store.name}
-        className="w-full h-48 object-cover"
+        className="w-full h-32 sm:h-48 object-cover"
       />
-      <div className="p-4">
-        <h3 className="text-lg font-semibold">{store.name}</h3>
-        <p className="text-gray-600 mt-1">{store.address}</p>
-        <div className="mt-2 flex items-center space-x-2">
+      <div className="p-2 sm:p-4 flex flex-col flex-1">
+        <h3 className="text-sm sm:text-lg font-semibold">{store.name}</h3>
+        <p className="text-gray-600 mt-1 text-xs sm:text-sm flex-1">{store.address}</p>
+        <div className="mt-auto flex flex-col sm:flex-col lg:flex-row justify-between items-center">
+          <div className='flex'>
           <Star className="text-yellow-400 fill-current" size={20} />
           <span>{store.rating}</span>
-          <span className="text-gray-500">• {store.distance} away</span>
+          </div>
+          
+          <p className="text-gray-500">• {store.distance} away</p>
         </div>
         <button className="mt-4 w-full bg-sky-900 text-white px-4 py-2 rounded-lg hover:bg-sky-700">
           Visit Store
