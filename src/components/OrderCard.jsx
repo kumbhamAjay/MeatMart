@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function OrderCard({ product, quantity = 1 }) {
+export default function OrderCard({ product}) {
   return (
     <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
       <img 
@@ -13,7 +13,7 @@ export default function OrderCard({ product, quantity = 1 }) {
         <p className="text-gray-600 text-sm">{product.description}</p>
         <div className="mt-2 flex justify-between items-center">
           <span className="font-bold">₹{product.price}</span>
-          {quantity && <span className="text-gray-500">Quantity: {quantity}</span>}
+          {product.quantity && <span className="text-gray-500">Quantity: {product.quantity}<span className="font-bold"> Total:{product.price*product.quantity}</span></span>}
         </div>
       </div>
     </div>

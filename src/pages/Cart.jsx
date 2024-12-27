@@ -2,11 +2,14 @@ import React, { useContext, useState } from 'react';
 import CartItem from '../components/CartItem';
 import { context } from '../App';
 import { Link } from 'react-router-dom';
+import Payment from './Payment';
+
 
 
 
 export default function Cart() {
  const{cartItems,setCartItems,isLogin}=useContext(context)
+ const[checkOut,setCheckOut]=useState(false);
 
   const updateQuantity = (id, newQuantity) => {
     setCartItems(cartItems.map(item => 
@@ -25,8 +28,9 @@ export default function Cart() {
    
     <div className="max-w-7xl mx-auto px-4 my-10 sm:px-6 lg:px-8 py-8">
     {
-      isLogin?<>
-      <h1 className="text-2xl font-bold mb-8">Shopping Cart</h1>
+      isLogin?<> 
+      {checkOut?<><Payment budget={total} ></Payment></>:<>
+        <h1 className="text-2xl font-bold mb-8">Shopping Cart</h1>
       
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-500">Your cart is empty</p>
@@ -47,12 +51,14 @@ export default function Cart() {
               <span className="text-xl font-bold">Total:</span>
               <span className="text-xl font-bold">₹{total}</span>
             </div>
-            <button className="mt-4 w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-800">
+            <button className="mt-4 w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-800" onClick={()=>setCheckOut(true)}>
               Proceed to Checkout
             </button>
           </div>
         </div>
-      )}</>:<div>Please Login <Link to={"/login"}><button className='bg-green-500'>Go to Login</button></Link></div>
+      )}
+      </>}
+      </>:<div>Please Login <Link to={"/login"}><button className='bg-green-500'>Go to Login</button></Link></div>
     }
       
     </div>

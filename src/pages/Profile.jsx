@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
 const Profile = () => {
-    const{currentUser,setCurrentUser,setIsLogin,cartItems}=useContext(context)
+    const{currentUser,setCurrentUser,setIsLogin,cartItems,setCartItems,orders}=useContext(context)
     const navigate=useNavigate()
     const logoutHandler=()=>{
         setCurrentUser(null)
         setIsLogin(false)
+        setCartItems([])
         navigate('/')
         toast.success("Logout Successfull")
     }
@@ -18,13 +19,14 @@ const Profile = () => {
        <div>
         {
             currentUser&&
-            <>
+            <div>
             <p>Name:{currentUser.name}</p>
             <p>Mail:{currentUser.mail}</p>
             <p>Phone Number:{currentUser.phone}</p>
             <p onClick={()=>navigate('/cart')}>Cart:&nbsp;&nbsp;&nbsp;&nbsp;{cartItems.length}</p>
-            <button onClick={logoutHandler}>LogOut</button>
-            </>
+            <p onClick={()=>navigate('/orders')}>Orders:&nbsp;&nbsp;&nbsp;&nbsp;{orders.length}</p>
+            <button style={{backgroundColor:"red"}} onClick={logoutHandler}>LogOut</button>
+            </div>
         }
         
        </div>
