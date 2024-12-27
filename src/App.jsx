@@ -10,8 +10,8 @@ import Footer from './components/Footer';
 import { Toaster, useToasterStore } from 'react-hot-toast';
 import Profile from './pages/Profile';
 import PaymentPage from './pages/Payment';
+import './styles/style.css'
 export const context=createContext()
-
 
 function App() {
   const [cartItems,setCartItems]=useState([])
@@ -41,7 +41,7 @@ function App() {
   return (
     <context.Provider value={{cartItems,setCartItems,users,setUsers,isLogin,setIsLogin,currentUser,setCurrentUser,orders,setOrders}}>
       <Router>
-      <div className="min-h-screen bg-gray-50 ">
+      <div className="min-h-screen bg-sky-100 ">
         <Toaster  position="top-center"/>
         <Navbar />
         <Routes>

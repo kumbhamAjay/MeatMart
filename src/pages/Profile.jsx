@@ -19,14 +19,36 @@ const Profile = () => {
        <div>
         {
             currentUser&&
-            <div>
-            <p>Name:{currentUser.name}</p>
-            <p>Mail:{currentUser.mail}</p>
-            <p>Phone Number:{currentUser.phone}</p>
-            <p onClick={()=>navigate('/cart')}>Cart:&nbsp;&nbsp;&nbsp;&nbsp;{cartItems.length}</p>
-            <p onClick={()=>navigate('/orders')}>Orders:&nbsp;&nbsp;&nbsp;&nbsp;{orders.length}</p>
-            <button style={{backgroundColor:"red"}} onClick={logoutHandler}>LogOut</button>
-            </div>
+            <div className="p-4 bg-gray-100 rounded-md shadow-md">
+  <p className="text-lg font-semibold text-gray-700">
+    Name: <span className="font-normal">{currentUser.name}</span>
+  </p>
+  <p className="text-lg font-semibold text-gray-700">
+    Mail: <span className="font-normal">{currentUser.mail}</span>
+  </p>
+  <p className="text-lg font-semibold text-gray-700">
+    Phone Number: <span className="font-normal">{currentUser.phone}</span>
+  </p>
+  <p
+    className="text-lg font-semibold text-blue-600 cursor-pointer hover:underline"
+    onClick={() => navigate('/cart')}
+  >
+    Cart: <span className="font-normal">{cartItems.length}</span>
+  </p>
+  <p
+    className="text-lg font-semibold text-blue-600 cursor-pointer hover:underline"
+    onClick={() => navigate('/orders')}
+  >
+    Orders: <span className="font-normal">{orders.length}</span>
+  </p>
+  <button
+    className="mt-4 px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+    onClick={logoutHandler}
+  >
+    Log Out
+  </button>
+</div>
+
         }
         
        </div>

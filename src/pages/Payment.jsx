@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { context } from "../App";
+import phonepe from '../Assets/phonepe.jpeg'
+import gpay from '../Assets/gpay.png'
+import cards from '../Assets/cards.jpeg'
 
 export default function Payment({budget}) {
   const [selectedOption, setSelectedOption] = useState("");
@@ -115,7 +118,7 @@ export default function Payment({budget}) {
                   className="hidden"
                 />
                 <img
-                  src="/phonepe-logo.png"
+                  src={phonepe}
                   alt="PhonePe"
                   className="w-8 h-8 mr-3"
                 />
@@ -134,7 +137,7 @@ export default function Payment({budget}) {
                   className="hidden"
                 />
                 <img
-                  src="/googlepay-logo.png"
+                  src={gpay}
                   alt="Google Pay"
                   className="w-8 h-8 mr-3"
                 />
@@ -153,7 +156,7 @@ export default function Payment({budget}) {
                   className="hidden"
                 />
                 <img
-                  src="/debitcard-logo.png"
+                  src={cards}
                   alt="Debit Card"
                   className="w-8 h-8 mr-3"
                 />

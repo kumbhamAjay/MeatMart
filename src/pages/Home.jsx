@@ -69,6 +69,25 @@ const featuredProducts = [
     category: "lamb",
     quantity: 1,
   },
+  ,
+  {
+    id: "7",
+    name: "Lamb Chops",
+    price: 599,
+    image: meat2,
+    description: "Premium cut lamb chops",
+    category: "lamb",
+    quantity: 1,
+  },
+  {
+    id: "8",
+    name: "Lamb Chops",
+    price: 599,
+    image: meat3,
+    description: "Premium cut lamb chops",
+    category: "lamb",
+    quantity: 1,
+  },
 ];
 
 export default function Home() {
@@ -95,24 +114,24 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-green-50">
+    <div className="min-h-screen ">
       <ManualCarousel />
     
-      <div className="container  my-10 lg:px-8">
+      <div className="container bg-sky-100  py-10 lg:px-8">
       <h1 className="text-2xl font-bold mx-8 mb-10">Featured Products</h1>
-        <div className="grid grid-cols-2 mx-4 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-4">
           {featuredProducts.map((product) => (
             <div
-              key={product.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden w-full h-64 sm:h-80 lg:h-96 flex"
-            >
-              <ProductCard
-                quantity={product.quantity}
-                product={product}
-                onAddToCart={isLogin?handleAddToCart:()=>navigate('/login')}
-                className="w-full h-full"
-              />
-            </div>
+            key={product.id}
+            className="bg-white rounded-lg shadow-md overflow-hidden w-full h-54 sm:h-80 lg:h-96 flex"
+          >
+            <ProductCard
+              quantity={product.quantity}
+              product={product}
+              onAddToCart={isLogin ? handleAddToCart : () => navigate('/login')}
+              className="w-full h-full"
+            />
+          </div>
           ))}
         </div>
       </div>
