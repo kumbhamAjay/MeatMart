@@ -187,7 +187,7 @@ const AboutCarausel = () => {
   ];
 
   return (
-    <div className="flex flex-wrap items-center mb-10 bg-lime-700 text-white rounded-lg px-4 py-8 lg:px-20 mx-4 sm:mx-20 lg:py-12">
+    <div className="flex flex-wrap items-center mb-10 bg-sky-700 text-white rounded-lg px-4 py-8 lg:px-20 mx-4 sm:mx-20 lg:py-12">
     {/* Mission Carousel */}
     <div className="w-full lg:w-1/3 px-4 mb-6 lg:mb-0">
       <h2 className="text-lg font-bold mb-4 text-center">Our Mission</h2>

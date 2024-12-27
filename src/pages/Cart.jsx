@@ -51,7 +51,7 @@ export default function Cart() {
               <span className="text-xl font-bold">Total:</span>
               <span className="text-xl font-bold">₹{total}</span>
             </div>
-            <button className="mt-4 w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-800" onClick={()=>setCheckOut(true)}>
+            <button className="mt-4 w-full bg-sky-900 text-white px-4 py-2 rounded-lg hover:bg-sky-700" onClick={()=>setCheckOut(true)}>
               Proceed to Checkout
             </button>
           </div>

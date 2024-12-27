@@ -70,7 +70,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-green-600 text-white px-4 py-2">
+        <div className="md:hidden bg-indigo-900 text-white px-4 py-2">
           <Link
             to="/stores"
             className="block py-2 hover:text-green-200"

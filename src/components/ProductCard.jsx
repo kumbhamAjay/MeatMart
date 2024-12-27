@@ -15,7 +15,7 @@ export default function ProductCard({ product, onAddToCart }) {
         <span className="text-base sm:text-xl font-bold">₹{product.price}</span>
         <button
           onClick={() => onAddToCart(product)}
-          className="bg-sky-900  text-white px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm rounded-lg hover:bg-green-800"
+          className="bg-sky-900  text-white px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm rounded-lg hover:bg-sky-700"
         >
           Add to Cart
         </button>

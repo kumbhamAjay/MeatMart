@@ -119,7 +119,7 @@ export default function Home() {
     
       <div className="container bg-sky-100  py-10 lg:px-8">
       <h1 className="text-2xl font-bold mx-8 mb-10">Featured Products</h1>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+        <div className="grid grid-cols-2 mx-auto lg:grid-cols-4 gap-4 p-4">
           {featuredProducts.map((product) => (
             <div
             key={product.id}

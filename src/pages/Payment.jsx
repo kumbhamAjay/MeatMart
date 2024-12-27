@@ -170,11 +170,16 @@ export default function Payment({budget}) {
           <button
           onClick={handlePay}
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-600 transition duration-200 font-medium"
+            className="w-full bg-gradient-to-r from-blue-500 to-purple-800 text-white py-2 px-4 rounded-md hover:from-purple-600 hover:to-blue-600 transition duration-200 font-medium"
           >
             Proceed to Pay
           </button>
-          <button onClick={()=>navigate('/cart')} >back</button>
+          <button
+    className="mt-4 px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+    onClick={()=>navigate('/cart')}
+  >
+    back
+  </button>
         </form>
       </div>
       }
